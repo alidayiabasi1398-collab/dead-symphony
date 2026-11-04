@@ -1,0 +1,638 @@
+/* متغیرهای رنگی برای مدیریت آسان تم */
+:root {
+    --bg-dark: #070b14;
+    --card-bg: rgba(17, 25, 40, 0.78);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --primary: #38bdf8;
+    --primary-glow: rgba(56, 189, 248, 0.25);
+    --accent: #10b981;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.85;
+    padding: 16px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* افکت نوری پس‌زمینه */
+.bg-glow {
+    position: fixed;
+    top: -120px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+main, header, footer {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* استایل هدر */
+.hero-card {
+    text-align: center;
+    padding: 32px 20px;
+    margin-bottom: 24px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 99px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    margin-bottom: 16px;
+}
+
+.hero-card h1 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, #ffffff, #7dd3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+/* کارت‌های شیشه‌ای (Glassmorphism) */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 22px;
+    padding: 24px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 22px;
+    background: var(--primary);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.content-box {
+    margin-bottom: 20px;
+}
+
+.content-box:last-child {
+    margin-bottom: 0;
+}
+
+h3 {
+    color: var(--primary);
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    text-align: justify;
+}
+
+/* لیست ویژگی‌ها */
+.feature-list {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.feature-list li {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.feature-list strong {
+    color: #f8fafc;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* بخش پروفایل */
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-box {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.avatar-box img {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    padding: 4px;
+    background: var(--bg-dark);
+    box-shadow: 0 0 25px var(--primary-glow);
+}
+
+.avatar-box figcaption {
+    font-size: 0.82rem;
+    color: var(--primary);
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* کارت‌های خدمات */
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.service-item {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.service-item:active {
+    transform: scale(0.98);
+    border-color: var(--primary);
+}
+
+.service-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    background: rgba(56, 189, 248, 0.12);
+    padding: 3px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* بخش CTA و دکمه اصلی */
+.cta-card {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 24px;
+    padding: 28px 20px;
+    margin-bottom: 24px;
+}
+
+.cta-card h2 {
+    justify-content: center;
+}
+
+.cta-card h2::before {
+    display: none;
+}
+
+.cta-card p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.primary-btn {
+    font-family: inherit;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    border-radius: 14px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:active {
+    transform: scale(0.97);
+}
+
+/* استایل پنجره پاپ‌آپ (Modal) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: #111827;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 22px;
+    padding: 24px 20px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.modal-overlay.active .modal-box {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #cbd5e1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-box h3 {
+    color: #ffffff;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.modal-box p {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+}
+
+.input-group {
+    margin-bottom: 14px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    font-family: inherit;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #ffffff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+}
+
+.submit-btn {
+    font-family: inherit;
+    width: 100%;
+    background: var(--primary);
+    color: #090d16;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.success-box {
+    text-align: center;
+    padding: 16px 0;
+}
+
+.check-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 12px auto;
+}
+
+.success-box h4 {
+    color: #10b981;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+/* فوتر */
+footer {
+    text-align: center;
+    padding: 18px 0 30px 0;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+/* استایل والد: چینش ۳ جعبه در کنار هم با فاصله‌گذاری مساوی */
+.stats-container {
+    display: flex;
+    justify-content: space-between; /* تقسیم مساوی فضا بین کارت‌ها */
+    align-items: center;            /* وسط‌چین کردن عمودی */
+    gap: 10px;                      /* فاصله بین هر کارت روی موبایل */
+    margin-bottom: 22px;
+}
+
+/* استایل هر کارت آمار */
+.stat-card {
+    flex: 1;                        /* هر کارت دقیقاً به یک اندازه سهم ببرد */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 12px 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;         /* عدد و عنوان زیر هم قرار بگیرند */
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-num {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.stat-title {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+/* اگر عرض صفحه از ۶۰۰ پیکسل بیشتر شد (تبلت یا افقی کردن گوشی) */
+@media (min-width: 600px) {
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* تقسیم به ۳ ستون برابر */
+        gap: 16px;
+    }
+}
+/* واکنش‌گرایی برای صفحات عریض‌تر یا حالت افقی گوشی */
+@media (min-width: 550px) {
+    .services-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+    }
+
+    .service-item {
+        flex: 1; /* هر کارت خدمات یک سهم مساوی از ردیف می‌گیرد */
+    }
+
+    /* در صفحه بزرگتر، عکس و متن درباره من کنار هم قرار می‌گیرند */
+    .profile-wrapper {
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        text-align: right;
+    }
+
+    .avatar-box {
+        margin-bottom: 0;
+        flex-shrink: 0; /* عکس کوچک نشود */
+    }
+}
+/* استایل‌های بخش نظرات */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+#comment-input {
+    width: 100%;
+    font-family: inherit;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #ffffff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#comment-input:focus {
+    border-color: var(--primary);
+}
+
+.comment-btn {
+    font-family: inherit;
+    background: var(--primary);
+    color: #090d16;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.comments-container {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* هر نظر تکی که توسط کاربر ثبت می‌شود */
+.user-comment-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-right: 3px solid var(--primary);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+}
+
+.empty-notice {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+/* استایل کارت نقل‌قول زنده */
+.quote-box {
+    text-align: center;
+    border-color: rgba(56, 189, 248, 0.2);
+}
+
+#quote-text {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #e2e8f0;
+    margin: 12px 0 6px 0;
+    line-height: 1.7;
+    direction: ltr; /* نقل‌قول انگلیسی است */
+}
+
+#quote-author {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--primary);
+    margin-bottom: 16px;
+    direction: ltr;
+}
+
+.secondary-btn {
+    font-family: inherit;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-btn:active {
+    background: var(--primary);
+    color: #0b0f19;
+}
+/* استایل چت‌بات */
+.chat-window {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 14px;
+    height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.chat-msg {
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+/* پیام دستیار */
+.bot-msg {
+    align-self: flex-start;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-bottom-right-radius: 4px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* پیام کاربر */
+.user-msg {
+    align-self: flex-end;
+    background: var(--primary);
+    color: #080d1a;
+    font-weight: 500;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input-bar {
+    display: flex;
+    gap: 8px;
+}
+
+#chat-input {
+    flex: 1;
+    font-family: inherit;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #ffffff;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#chat-input:focus {
+    border-color: var(--primary);
+}
+
+.chat-btn {
+    font-family: inherit;
+    background: var(--primary);
+    color: #080d1a;
+    border: none;
+    padding: 0 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
